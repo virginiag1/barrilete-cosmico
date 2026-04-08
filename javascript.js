@@ -96,7 +96,7 @@ function renderizar(lista) {
         const pct    = p.oferta && !isNaN(+p.oferta) ? Math.round(+p.oferta) : null;
         const precio = parseFloat(p.precio.replace(/[^0-9.]/g, ''));
         const transf = !isNaN(precio) ? '$' + Math.round(precio * 0.85).toLocaleString('es-AR') : null;
-        const msg    = encodeURIComponent(`Hola Flor! 👋 Quiero consultar por *${p.nombre}*. ¿Tenés disponible?`);
+        const msg    = encodeURIComponent(`Hola Flor! Quiero consultar por *${p.nombre}*. ¿Tenés disponible?`);
         const esNino = p.edad.toLowerCase().includes('ni');
         const talles = p.talle ? p.talle.split(' ').join(' · ') : 'Consultar talles';
         return `<div class="card">
