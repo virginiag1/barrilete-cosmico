@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barrilete Cósmico | Camisetas Retro Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="./img/logo.png">
+</head>
+<body>
+
+
+    <header>
+        <div class="nav-container">
+            <i class="fas fa-bars" id="btn-menu"></i>
+            <img src="./img/logo.png" alt="Barrilete Cósmico" class="logo-img"
+                onerror="this.style.display='none'; document.getElementById('logo-texto').style.display='block';">
+            <span id="logo-texto" class="nav-logo-text" style="display:none;">Barrilete Cósmico</span>
+            <div class="nav-icons">
+                <i class="fas fa-shopping-bag"></i>
+            </div>
+        </div>
+    </header>
+
+    <div id="menu-overlay"></div>
+
+    <div id="side-menu" class="side-nav">
+        <button class="btn-close" id="btn-close-menu">✕</button>
+        <div class="menu-content">
+            <div class="menu-item" data-action="todo">Todos los productos</div>
+            <div class="menu-item highlight" data-action="outlet">✦ Outlet / Liquidación</div>
+            <div class="menu-separator">— Encontrá tu equipo —</div>
+            <div class="menu-item" data-equipo="ARGENTINA">Argentina</div>
+            <div class="menu-item" data-equipo="RIVER PLATE">River Plate</div>
+            <div class="menu-item" data-equipo="BOCA JUNIORS">Boca Juniors</div>
+            <div class="menu-item" data-equipo="SAN LORENZO">San Lorenzo</div>
+            <div class="menu-item" data-equipo="INDEPENDIENTE">Independiente</div>
+            <div class="menu-item" data-equipo="RACING">Racing</div>
+            <div class="menu-item" data-equipo="ROSARIO CENTRAL">Rosario Central</div>
+            <div class="menu-item" data-equipo="EUROPEAS">Europeas</div>
+            <div class="menu-item" data-equipo="IMPORTADAS">Importadas</div>
+            <div class="menu-item" data-equipo="TERMICOS">Térmicos</div>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Barrilete Cósmico</h1>
+            <p>La magia del 10 en cada prenda</p>
+            <button class="btn-hero" id="btn-ver-coleccion">Ver colección</button>
+        </div>
+    </section>
+
+   <div class="divider-decorativo">
+    <div class="linea"></div>
+    <div class="label">colecciones</div>
+    <div class="linea"></div>
+</div>
+    <!-- Chips de filtro -->
+    <div id="zona-chips" class="zona-chips" style="display:none;">
+        <div id="equipo-activo-titulo" class="equipo-titulo"></div>
+        <div class="chips-wrap">
+            <div class="chips-grupo">
+                <span class="chips-label">Edad</span>
+                <div class="chips-row" id="chips-edad">
+                    <button class="chip active" data-tipo="edad" data-valor="Todos">Todos</button>
+                    <button class="chip" data-tipo="edad" data-valor="Adulto">Adulto</button>
+                    <button class="chip" data-tipo="edad" data-valor="Niño">Niño</button>
+                </div>
+            </div>
+            <div class="chips-grupo">
+                <span class="chips-label">Tipo</span>
+                <div class="chips-row" id="chips-categoria">
+                    <button class="chip active" data-tipo="categoria" data-valor="Todos">Todos</button>
+                    <button class="chip" data-tipo="categoria" data-valor="Camiseta">Camiseta</button>
+                    <button class="chip" data-tipo="categoria" data-valor="Short">Short</button>
+                    <button class="chip" data-tipo="categoria" data-valor="Pantalon">Pantalón</button>
+                    <button class="chip" data-tipo="categoria" data-valor="Buzo">Buzo</button>
+                    <button class="chip" data-tipo="categoria" data-valor="Calzado">Calzado</button>
+                    <button class="chip" data-tipo="categoria" data-valor="Accesorio">Accesorio</button>
+                    <button class="chip" data-tipo="categoria" data-valor="Termico">Térmico</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="productos" class="productos" style="display: none;">
+        
+        <div id="grid-productos" class="productos-container">
+            <p class="sin-productos">Cargando productos...</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">Barrilete Cósmico</div>
+        <p>Camisetas retro premium · Concordia, Entre Ríos</p>
+    </footer>
+
+    <a href="https://wa.me/543456020641" class="wsp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="./javascript.js"></script>
+</body>
+</html>

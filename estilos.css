@@ -1,0 +1,641 @@
+/* ══════════════════════════════════════════
+   BARRILETE CÓSMICO — estilos.css
+   Para cambiar la paleta, solo tocá :root
+   ══════════════════════════════════════════ */
+:root {
+    --dorado:       #c9a227;
+    --negro:        #0a0a0a;
+    --negro2:       #111111;
+    --negro3:       #181818;
+    --borde:        #1f1f1f;
+    --texto:        #ffffff;
+    --texto2:       #888888;
+    --texto3:       #444444;
+    --wsp:          #25d366;
+    --font-display: 'Bebas Neue', 'Barlow Condensed', Impact, sans-serif;
+    --font-sub:     'Barlow Condensed', 'Helvetica Neue', sans-serif;
+    --font-body:    'Barlow', 'Helvetica Neue', Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: var(--negro);
+    color: var(--texto);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+/* ── ANNOUNCEMENT BAR ── */
+.announcement-bar {
+    background: var(--dorado);
+    color: var(--negro);
+    text-align: center;
+    font-family: var(--font-sub);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 7px 12px;
+    overflow: hidden;
+}
+
+/* ── HEADER ── */
+header {
+    background: var(--negro);
+    height: 90px; /* Un poquito más alta para que luzca el logo */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--borde);
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 18px;
+    position: relative; /* Esto es clave */
+}
+
+.nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 18px;
+}
+
+.nav-container .fa-bars {
+    font-size: 22px;
+    color: var(--dorado);
+    cursor: pointer;
+}
+
+.logo-img:hover { transform: scale(1.05); }
+
+.nav-logo-text {
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: var(--dorado);
+    text-decoration: none;
+}
+
+.nav-icons i {
+    font-size: 22px;
+    color: var(--dorado);
+    cursor: pointer;
+}
+
+/* ── OVERLAY ── */
+#menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 1500;
+}
+
+/* ── MENÚ LATERAL ── */
+#menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 1500;
+}
+
+.side-nav {
+    height: 100%; width: 0;
+    position: fixed;
+    z-index: 2000;
+    top: 0; left: 0;
+    background: var(--negro2);
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: width 0.35s ease;
+    border-right: 1px solid var(--borde);
+}
+
+.side-nav.open { width: 320px; }
+
+.btn-close {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 18px 20px 10px;
+    font-size: 22px;
+    cursor: pointer;
+    color: var(--dorado);
+    background: none;
+    border: none;
+    width: 100%;
+}
+
+.menu-separator {
+    padding: 20px 28px 8px;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--texto3);
+    font-family: var(--font-sub);
+    border-top: 1px solid var(--borde);
+    margin-top: 8px;
+}
+
+.menu-item {
+    display: block;
+    padding: 14px 28px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--texto);
+    border-bottom: 1px solid var(--borde);
+    font-family: var(--font-sub);
+    cursor: pointer;
+    transition: color 0.2s, padding-left 0.2s;
+}
+
+.menu-item:hover {
+    color: var(--dorado);
+    padding-left: 34px;
+}
+
+.menu-item.highlight {
+    color: var(--dorado);
+    font-weight: 800;
+}
+
+/* En desktop el menú igual se abre lateral como en celu */
+@media (min-width: 768px) {
+    .side-nav.open { width: 360px; }
+}
+/* ── HERO ── */
+.hero {
+    height: 70vh;
+    min-height: 360px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('./img/banner-inicio.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--texto);
+    padding: 0 24px;
+    border-bottom: 1px solid var(--borde);
+}
+#contenedor-productos {
+    display: none; /* Oculto al cargar */
+}
+
+.hero-content::before {
+    content: '';
+    display: block;
+    width: 40px; height: 1px;
+    background: var(--dorado);
+    margin: 0 auto 16px;
+}
+
+.hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 10vw, 6rem);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.hero p {
+    font-family: var(--font-sub);
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--texto2);
+    margin: 12px 0 28px;
+}
+
+.btn-hero {
+    background: transparent;
+    color: var(--dorado);
+    border: 1px solid var(--dorado);
+    padding: 12px 36px;
+    font-family: var(--font-sub);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.25s, color 0.25s;
+}
+.btn-hero:hover { background: var(--dorado); color: var(--negro); }
+
+/* ── SECCIÓN EQUIPOS — solo texto, estilo botones ── */
+.seccion-equipos {
+    padding: 40px 20px 36px;
+    text-align: center;
+    border-bottom: 1px solid var(--borde);
+}
+
+.seccion-equipos h2 {
+    font-family: var(--font-sub);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--texto3);
+    margin-bottom: 24px;
+}
+
+.equipos-grid {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Cada equipo es un botón de texto */
+.equipo-item {
+    font-family: var(--font-sub);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto2);
+    border: 1px solid var(--borde);
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+    background: transparent;
+}
+
+.equipo-item:hover {
+    color: var(--dorado);
+    border-color: var(--dorado);
+    background: rgba(201, 162, 39, 0.05);
+}
+
+.equipo-item.activo {
+    color: var(--negro);
+    background: var(--dorado);
+    border-color: var(--dorado);
+}
+
+/* ── DIVIDER ── */
+.divider-decorativo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 24px;
+    margin: 28px 0;
+}
+.divider-decorativo .linea { flex: 1; height: 1px; background: var(--borde); }
+.divider-decorativo .label {
+    font-family: var(--font-sub);
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--texto3);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* ── BANNERS ── */
+.banners-categoria {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    padding: 0 3px;
+    margin-bottom: 3px;
+}
+
+.banner-cat {
+    position: relative;
+    height: 160px;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--negro2);
+    border: 1px solid var(--borde);
+}
+
+.banner-cat img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    transition: opacity 0.35s, transform 0.35s;
+}
+.banner-cat:hover img { opacity: 0.35; transform: scale(1.05); }
+
+.banner-cat-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 14px;
+}
+.banner-cat-content::before {
+    content: '';
+    display: block;
+    width: 20px; height: 1px;
+    background: var(--dorado);
+    margin-bottom: 6px;
+}
+.banner-cat span {
+    color: var(--texto);
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* ── CHIPS DE FILTRO ── */
+.zona-chips {
+    background: var(--negro2);
+    border-bottom: 1px solid var(--borde);
+    padding: 16px 16px 14px;
+}
+
+.equipo-titulo {
+    font-family: var(--font-display);
+    font-size: 26px;
+    letter-spacing: 4px;
+    color: var(--dorado);
+    margin-bottom: 12px;
+}
+
+.chips-wrap { display: flex; flex-direction: column; gap: 10px; }
+
+.chips-grupo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.chips-label {
+    font-family: var(--font-sub);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto3);
+    min-width: 32px;
+}
+
+.chips-row { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.chip {
+    background: transparent;
+    border: 1px solid var(--borde);
+    color: var(--texto2);
+    font-family: var(--font-sub);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.chip:hover { border-color: var(--dorado); color: var(--dorado); }
+.chip.active { background: var(--dorado); border-color: var(--dorado); color: var(--negro); }
+
+/* ── SECTION TITLE ── */
+.section-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 32px 0 20px;
+    color: var(--dorado);
+}
+.section-title::after {
+    content: '';
+    display: block;
+    width: 30px; height: 1px;
+    background: var(--dorado);
+    margin: 8px auto 0;
+    opacity: 0.5;
+}
+
+/* ── PRODUCTOS ── */
+.productos { padding: 0 6px 50px; }
+
+.productos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 8px;
+    padding: 0 2px;
+}
+
+/* ── CARD ── */
+.card {
+    background: var(--negro2);
+    border: 1px solid var(--borde);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.25s;
+}
+.card:hover { border-color: var(--dorado); }
+
+.card img {
+    width: 100%; height: 220px;
+    object-fit: cover;
+    display: block;
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+.card:hover img { opacity: 1; }
+
+.badge-off {
+    position: absolute;
+    top: 10px; left: 10px;
+    background: var(--dorado);
+    color: var(--negro);
+    font-family: var(--font-sub);
+    font-size: 10px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 2px;
+}
+
+.badge-edad {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: rgba(0,0,0,0.75);
+    color: var(--texto2);
+    font-family: var(--font-sub);
+    font-size: 9px;
+    font-weight: 700;
+    padding: 3px 7px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid var(--borde);
+}
+.badge-edad.nino { color: #7ec8e3; border-color: #7ec8e3; }
+
+.card-body { padding: 10px 12px 12px; }
+
+.card-body h3 {
+    font-family: var(--font-sub);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--texto);
+    margin-bottom: 3px;
+    line-height: 1.2;
+}
+
+.card-talle {
+    font-size: 10px;
+    color: var(--texto3);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.precio-final {
+    font-family: var(--font-display);
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: var(--dorado);
+    margin: 2px 0 6px;
+}
+
+.precio-transferencia {
+    font-size: 10px;
+    color: var(--texto2);
+    background: var(--negro3);
+    padding: 4px 8px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    border-left: 2px solid var(--dorado);
+}
+
+.btn-consultar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: var(--wsp);
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-sub);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 10px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    transition: background 0.2s;
+}
+.btn-consultar:hover { background: #1ebe57; }
+
+.sin-productos {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--texto3);
+    font-size: 14px;
+    line-height: 1.8;
+    grid-column: 1 / -1;
+    font-family: var(--font-sub);
+    letter-spacing: 1px;
+}
+
+/* ── WSP FLOTANTE ── */
+.wsp-float {
+    position: fixed;
+    bottom: 24px; right: 20px;
+    background: var(--wsp);
+    color: #fff;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    text-decoration: none;
+    z-index: 999;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+}
+.wsp-float:hover { transform: scale(1.08); }
+
+/* ── FOOTER ── */
+footer {
+    background: var(--negro2);
+    border-top: 1px solid var(--borde);
+    padding: 32px 24px;
+    text-align: center;
+}
+footer .footer-logo {
+    font-family: var(--font-display);
+    font-size: 24px;
+    letter-spacing: 6px;
+    color: var(--dorado);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+footer p {
+    font-family: var(--font-sub);
+    font-size: 11px;
+    color: var(--texto3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+    .productos-container { grid-template-columns: repeat(2, 1fr); }
+    .card img { height: 185px; }
+    .banner-cat { height: 120px; }
+    .hero h1 { font-size: 3rem; }
+    .equipo-item { font-size: 11px; padding: 7px 12px; }
+}
+@media (min-width: 768px) {
+    .productos-container { grid-template-columns: repeat(3, 1fr); }
+    .banner-cat { height: 220px; }
+}
+@media (min-width: 1024px) {
+    .productos-container { grid-template-columns: repeat(4, 1fr); }
+}
+/* --- ESTO VA AL FINAL DE ESTILOS.CSS --- */
+
+/* 1. Le damos más alto a la barra negra para que entre el logo */
+header {
+    height: 110px !important; /* Probá con 110px. Si sigue cortado, subilo a 120px */
+}
+
+/* 2. Nos aseguramos de que la barra no "corte" al logo */
+header .nav-container {
+    height: 100% !important;
+    overflow: visible !important; /* Esto es clave para que no se corte */
+    position: relative;
+}
+
+/* 3. Ajustamos el logo para que se centre en la nueva altura */
+.logo-img {
+    height: 100px !important; /* El logo va a medir 100px de alto */
+    width: auto !important;
+    max-height: none !important;
+    border-radius: 50%; /* Si tu logo es redondo */
+    
+    /* Centrado perfecto */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
