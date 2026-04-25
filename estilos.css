@@ -30,14 +30,29 @@ body {
 .announcement-bar {
     background: var(--dorado);
     color: var(--negro);
-    text-align: center;
     font-family: var(--font-sub);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    padding: 7px 12px;
+    padding: 7px 0;
     overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-track {
+    display: inline-flex;
+    gap: 60px;
+    animation: marquee 18s linear infinite;
+}
+
+.marquee-track span {
+    flex-shrink: 0;
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
 }
 
 /* ── HEADER ── */
@@ -180,7 +195,7 @@ header {
     height: 70vh;
     min-height: 360px;
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                url('./img/banner-inicio.jpg') center/cover no-repeat;
+                url('/img/banner-inicio.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -638,4 +653,75 @@ header .nav-container {
     transform: translate(-50%, -50%) !important;
     margin: 0 !important;
     padding: 0 !important;
+}
+.carrusel {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    background: var(--negro2);
+}
+
+.car-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.car-img.active { opacity: 1; }
+
+.car-prev, .car-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.45);
+    color: var(--dorado);
+    border: none;
+    font-size: 22px;
+    width: 28px;
+    height: 44px;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.car-prev:hover, .car-next:hover { background: rgba(0,0,0,0.8); }
+.car-prev { left: 0; }
+.car-next { right: 0; }
+
+.car-dots {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+    z-index: 2;
+}
+
+.car-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.car-dot.active { background: var(--dorado); }
+
+/* La card con carrusel no tiene altura fija en la imagen */
+.card img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
 }
