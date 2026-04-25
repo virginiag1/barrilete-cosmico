@@ -195,7 +195,7 @@ header {
     height: 70vh;
     min-height: 360px;
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                url('/img/banner-inicio.jpg') center/cover no-repeat;
+                url('./img/banner-inicio.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
